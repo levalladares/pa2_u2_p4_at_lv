@@ -2,15 +2,33 @@ package com.example.demo.repository.modelo;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name="hotel")
 public class Hotel {
+	
+	@GeneratedValue(generator ="seq_hotel",strategy = GenerationType.SEQUENCE )
+	@SequenceGenerator(name = "seq_hotel",sequenceName = "seq_hotel",allocationSize = 1)// el allocationSize de coincidir con el valor que pusimos en el incremento
+	@Id
+	@Column(name = "hot_id")
 	private Integer id;
 	
+	@Column(name = "hot_nombre")
 	private String nombre;
+	
+	@Column(name = "hot_direccion")
 	private String direccion;
 	
-	@OneToMany(mappedBy = "hotel")
+	@OneToMany(mappedBy = "hotel") //>>>>>>>>>  un hotel tiene varias habitaciones 
 	private List <Habitacion> habitaciones;
 	
 	//SET Y GET
