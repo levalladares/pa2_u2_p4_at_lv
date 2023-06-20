@@ -1,24 +1,26 @@
 package com.example.demo;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.example.demo.repository.modelo.Ciudadano;
-import com.example.demo.repository.modelo.Empleado;
-import com.example.demo.service.CuidadanoService;
-import com.example.demo.service.EmpleadoService;
+import com.example.demo.repository.modelo.Habitacion;
+import com.example.demo.repository.modelo.Hotel;
+import com.example.demo.service.HabitacionService;
+import com.example.demo.service.HotelService;
 
 @SpringBootApplication
 public class Pa2U2P4AtLvApplication implements CommandLineRunner {
 	
 	@Autowired
-	private CuidadanoService  cuidadanoService;
+	private HotelService  hotelService;
 	@Autowired
-	private EmpleadoService empleadoService ;
+	private HabitacionService habitacionService ;
 	
 	
 	public static void main(String[] args) {
@@ -28,43 +30,59 @@ public class Pa2U2P4AtLvApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 	
-		Ciudadano ciudadano1 = new Ciudadano();
-		ciudadano1.setNombre("Anthony");
-		ciudadano1.setApellido("Tipan");
-		ciudadano1.setCedula("1345");
+		/*Hotel hotel1= new Hotel ();
+		hotel1.setDireccion("Quito");
+		hotel1.setNombre("Risol");*/
+		//this.hotelService.guardar(hotel1);
 		
-		Ciudadano ciudadano2 = new Ciudadano();
-		ciudadano2.setNombre("Luis");
-		ciudadano2.setApellido("xyz");
-		ciudadano2.setCedula("5678");
-		
-		Empleado empleado1 = new Empleado();
-		empleado1.setCargo("Gerente ");
-		empleado1.setSueldo(new BigDecimal(500));
-		empleado1.setCiudadano(ciudadano1);
-		
-		Empleado empleado2 = new Empleado();
-		empleado2.setCargo("Bodegero ");
-		empleado2.setSueldo(new BigDecimal(500));
-		empleado2.setCiudadano(ciudadano2);
+		Hotel hotel2= new Hotel ();
+		hotel2.setDireccion("Sangolqui");
+		hotel2.setNombre("Hotel Y");
 		
 		
-		ciudadano1.setEmpleado(empleado1);
-		ciudadano2.setEmpleado(empleado2);
-		//this.cuidadanoService.guardar(ciudadano1);
-		this.empleadoService.guardar(empleado1);
-		//this.cuidadanoService.guardar(ciudadano2);
-		this.empleadoService.guardar(empleado2);
+		Habitacion hab1= new Habitacion();
+		hab1.setNumero("01");
+		hab1.setValor(new  BigDecimal(30));
+		//hab1.setHotel(hotel1);
+		//this.habitacionService.guardar(hab1);
+		
+		Habitacion hab2= new Habitacion();
+		hab2.setNumero("02");
+		hab2.setValor(new  BigDecimal(30));
+		//hab2.setHotel(hotel1);
+		//this.habitacionService.guardar(hab2);
+		
+		Habitacion hab3= new Habitacion();
+		hab3.setNumero("03");
+		hab3.setValor(new  BigDecimal(35));
+		//hab3.setHotel(hotel1);
+		//this.habitacionService.guardar(hab3);
+		
+		List<Habitacion>lista=new ArrayList<>();
+		lista.add(hab1);
+		lista.add(hab2);
+		lista.add(hab3);
 		
 		
-		ciudadano2.setApellido("Valladares");
-		this.cuidadanoService.actualizar(ciudadano2);
 		
-		this.cuidadanoService.buscar(30);
+		Hotel hotel1= new Hotel ();
+		hotel1.setDireccion("Quito");
+		hotel1.setNombre("Risol");
+		hotel1.setHabitaciones(lista);
 		
-		this.cuidadanoService.eliminar(30);
+		hab1.setHotel(hotel1);
+		hab2.setHotel(hotel1);
+		hab3.setHotel(hotel1);
+		this.hotelService.guardar(hotel1);
 		
+		hotel1.setNombre("ABCD");
+		this.hotelService.actualizar(hotel1);
+		
+		this.habitacionService.eliminar(4);
 
+		
+		
+		
 			
 	}
 

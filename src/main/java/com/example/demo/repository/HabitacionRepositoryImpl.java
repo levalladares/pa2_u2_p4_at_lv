@@ -30,14 +30,14 @@ public class HabitacionRepositoryImpl implements HabitacionRepository {
 	}
 
 	@Override
-	public Habitacion seleccionar(String num) {
+	public Habitacion seleccionar(Integer id ) {
 		
-		return this.entityManager.find(Habitacion.class, num);
+		return this.entityManager.find(Habitacion.class, id);
 	}
 
 	@Override
-	public void eliminar(String num) {
-		Habitacion habitacion = this.seleccionar(num);
+	public void eliminar(Integer id ) {
+		Habitacion habitacion = this.seleccionar(id);
 		this.entityManager.remove(habitacion);
 		
 	}

@@ -28,14 +28,14 @@ public class HotelRepositoryImpl implements HotelRepository {
 	}
 
 	@Override
-	public Hotel seleccionar(String nombre) {
+	public Hotel seleccionar(Integer id ) {
 	
-		return this.entityManager.find(Hotel.class, nombre);
+		return this.entityManager.find(Hotel.class, id);
 	}
 
 	@Override
-	public void eliminar(String nombre) {
-		Hotel hote = this.seleccionar(nombre);
+	public void eliminar(Integer id ) {
+		Hotel hote = this.seleccionar(id);
 		this.entityManager.remove(hote);
 		
 	}

@@ -26,13 +26,13 @@ public class HotelServiceImpl implements HotelService{
 	}
 
 	@Override
-	public void buscar(String nombre) {
-		this.hotelRepository.seleccionar(nombre);
+	public Hotel buscar(Integer id ) {
+		 return this.hotelRepository.seleccionar(id);
 	}
 
 	@Override
-	public void eliminar(String nombre) {
-		this.hotelRepository.eliminar(nombre);
+	public void eliminar(Integer id ) {
+		this.hotelRepository.eliminar(id);
 		
 	}
 

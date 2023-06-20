@@ -27,13 +27,13 @@ public class HabitacionServiceImpl implements HabitacionService {
 	}
 
 	@Override
-	public void buscar(String num) {
-		this.habitacionRepository.seleccionar(num);
+	public Habitacion buscar(Integer id ) {
+		 return this.habitacionRepository.seleccionar(id);
 	}
 
 	@Override
-	public void eliminar(String num) {
-		this.habitacionRepository.eliminar(num);
+	public void eliminar(Integer id ) {
+		this.habitacionRepository.eliminar(id);
 		
 	}
 	

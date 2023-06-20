@@ -6,7 +6,7 @@ public interface HabitacionService {
 	
 	public void guardar(Habitacion habitacion);
 	public void actualizar(Habitacion habitacion);
-	public void buscar(String num);
-	public void eliminar(String num);
+	public Habitacion buscar(Integer id );
+	public void eliminar(Integer id );
 
 }
