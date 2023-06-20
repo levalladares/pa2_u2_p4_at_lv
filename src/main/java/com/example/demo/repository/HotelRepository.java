@@ -4,9 +4,10 @@ import com.example.demo.repository.modelo.Hotel;
 
 public interface HotelRepository {
 	
-	public void insertar(Hotel hotel);
-	public void actualizar(Integer id);
-	public Hotel seleccionar(Integer id);
-	public void eliminar(Integer id);
+	public void insertar(Hotel Hotel);
+	public void actualizar(Hotel Hotel);
+	public Hotel seleccionar(String nombre);
+	public void eliminar(String nombre);
+	
 
 }

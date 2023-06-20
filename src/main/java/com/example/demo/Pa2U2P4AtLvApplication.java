@@ -1,27 +1,25 @@
 package com.example.demo;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.example.demo.repository.modelo.Habitacion;
-import com.example.demo.repository.modelo.Hotel;
-import com.example.demo.service.HabitacionService;
-import com.example.demo.service.HotelService;
+import com.example.demo.repository.modelo.Ciudadano;
+import com.example.demo.repository.modelo.Empleado;
+import com.example.demo.service.CuidadanoService;
+import com.example.demo.service.EmpleadoService;
 
 @SpringBootApplication
 public class Pa2U2P4AtLvApplication implements CommandLineRunner {
 	
 	@Autowired
-	private HotelService hotelService;
+	private CuidadanoService  cuidadanoService;
 	@Autowired
-	private HabitacionService habitacionService;
+	private EmpleadoService empleadoService ;
+	
 	
 	public static void main(String[] args) {
 		SpringApplication.run(Pa2U2P4AtLvApplication.class, args);
@@ -29,87 +27,45 @@ public class Pa2U2P4AtLvApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		/*Ciudadano ciu = new Ciudadano();
-		ciu.setNombre("Luis Anthony");
-		ciu.setApellido("Tipan Valladareszzz");
-		ciu.setCedula("1245789");
-		this.ciudadanoService.agregar(ciu); //>>>>>>>>> se agrega solo el ciudadano
+	
+		Ciudadano ciudadano1 = new Ciudadano();
+		ciudadano1.setNombre("Anthony");
+		ciudadano1.setApellido("Tipan");
+		ciudadano1.setCedula("1345");
 		
-		Ciudadano ciu2 = new Ciudadano();
-		ciu2.setNombre("Luis Anthony");
-		ciu2.setApellido("Tipan TIPAN");
-		ciu2.setCedula("1245787779");
-		//this.ciudadanoService.agregar(ciu2);
+		Ciudadano ciudadano2 = new Ciudadano();
+		ciudadano2.setNombre("Luis");
+		ciudadano2.setApellido("xyz");
+		ciudadano2.setCedula("5678");
 		
-		Empleado emp = new Empleado();
-		emp.setCiudadano(ciu2);
-		emp.setCargo("Bodeguero");
-		emp.setSueldo(new BigDecimal(400));
-		ciu2.setEmpleado(emp);
+		Empleado empleado1 = new Empleado();
+		empleado1.setCargo("Gerente ");
+		empleado1.setSueldo(new BigDecimal(500));
+		empleado1.setCiudadano(ciudadano1);
 		
-		//this.ciudadanoService.agregar(ciu);      <<<<>>>> FALLA
-		this.empleadoService.agregar(emp);  //>>>>>>>>> se agrega el ciudadano desde el empleado
-		*/
-		
-		Hotel hot = new Hotel();
-		hot.setNombre("Hotel X");
-		hot.setDireccion("Av. 10 DE AGOSTO");
-		//this.hotelService.construir(hot);
-		
-		Hotel hot2 = new Hotel();
-		hot2.setNombre("Hotel Y");
-		hot2.setDireccion("Av. AMERICA");
-		
-		Hotel hot3 = new Hotel();
-		hot3.setNombre("Hotel l");
-		hot3.setDireccion("Av. ABC");
-		
-		Hotel hot4 = new Hotel();
-		hot4.setNombre("Hotel AAA");
-		hot4.setDireccion("Av. AAA");
-		
-		Habitacion hab = new Habitacion();
-		hab.setNumero("01");
-		hab.setValor(new BigDecimal(20));
-		hab.setHotel(hot4);
-		//this.habitacionService.agregar(hab);
-		
-		Habitacion hab2 = new Habitacion();
-		hab2.setNumero("02");
-		hab2.setValor(new BigDecimal(30));
-		hab2.setHotel(hot4);
-		//this.habitacionService.agregar(hab2);
-		
-		Habitacion hab3 = new Habitacion();
-		hab3.setNumero("03");
-		hab3.setValor(new BigDecimal(40));
-		hab3.setHotel(hot4);
-		//this.habitacionService.agregar(hab3);
-		
-		List<Habitacion> lista = new ArrayList<>();
-		lista.add(hab3);
-        lista.add(hab2);
-        lista.add(hab);
-        hot4.setHabitaciones(lista);
-		
-		this.habitacionService.agregar(hab);
-		this.habitacionService.agregar(hab2);
-		this.habitacionService.agregar(hab3);
+		Empleado empleado2 = new Empleado();
+		empleado2.setCargo("Bodegero ");
+		empleado2.setSueldo(new BigDecimal(500));
+		empleado2.setCiudadano(ciudadano2);
 		
 		
-		//hot.setHabitaciones(Arrays.asList(hab, hab2, hab3));
-		//this.habitacionService.agregar(hab);
-		//this.habitacionService.agregar(hab2);
-		//this.habitacionService.agregar(hab3);
-		//this.hotelService.construir(hot);
+		ciudadano1.setEmpleado(empleado1);
+		ciudadano2.setEmpleado(empleado2);
+		//this.cuidadanoService.guardar(ciudadano1);
+		this.empleadoService.guardar(empleado1);
+		//this.cuidadanoService.guardar(ciudadano2);
+		this.empleadoService.guardar(empleado2);
 		
-		/*this.habitacionService.eliminar(7);
-		this.habitacionService.eliminar(8);
-		this.habitacionService.eliminar(9);
-		this.hotelService.eliminar(4);
-		this.habitacionService.eliminar(11);
-		this.hotelService.eliminar(5);*/
 		
+		ciudadano2.setApellido("Valladares");
+		this.cuidadanoService.actualizar(ciudadano2);
+		
+		this.cuidadanoService.buscar(30);
+		
+		this.cuidadanoService.eliminar(30);
+		
+
+			
 	}
 
 }

@@ -20,14 +20,19 @@ public class CtaBancaria {
 	@Id
 	@Column(name ="cta_id")
 	private Integer id;
+	
 	@Column(name ="cta_numero")
 	private String numero;
+	
 	@Column(name ="cta_tipo")
 	private String tipo ;
+	
 	@Column(name="cta_fechaA")
 	private LocalDate fechaApertura;
+	
 	@Column(name="cta_saldo")
 	private BigDecimal saldo;
+	
 	@Column(name="cta_cedula")
 	private String cedulaPropietario;
 	

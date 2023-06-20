@@ -19,12 +19,16 @@ public class Ciudadano {
 	@Id
 	@Column(name = "ciud_id")
 	private Integer id;
+	
 	@Column(name = "ciud_nombre")
 	private String nombre;
+	
 	@Column(name = "ciud_apellido")
 	private String apellido;
+	
 	@Column(name = "ciud_cedula")
 	private String cedula;
+	
 	@OneToOne(mappedBy = "ciudadano",cascade = CascadeType.ALL)  /// nombre del atributo con el que mapee
 	private Empleado empleado;
 	
@@ -34,7 +38,9 @@ public class Ciudadano {
 	public Integer getId() {
 		return id;
 	}
-	
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public String getNombre() {
 		return nombre;
 	}

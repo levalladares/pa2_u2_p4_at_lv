@@ -48,6 +48,10 @@ public class Empleado {
 		return id;
 	}
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public BigDecimal getSueldo() {
 		return sueldo;
 	}

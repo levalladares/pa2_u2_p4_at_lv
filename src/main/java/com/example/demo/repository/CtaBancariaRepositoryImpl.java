@@ -24,8 +24,8 @@ public class CtaBancariaRepositoryImpl implements CtaBancariaRepository {
 	}
 
 	@Override
-	public void actualizar(Integer id) {
-		this.entityManager.merge(id);
+	public void actualizar(CtaBancaria ctaBancaria) {
+		this.entityManager.merge(ctaBancaria);
 		
 	}
 
@@ -40,5 +40,7 @@ public class CtaBancariaRepositoryImpl implements CtaBancariaRepository {
 		this.entityManager.remove(ctaB);
 		
 	}
+
+
 
 }

@@ -5,8 +5,7 @@ import com.example.demo.repository.modelo.Habitacion;
 public interface HabitacionRepository {
 	
 	public void insertar(Habitacion habitacion);
-	public void actualizar(Integer id);
-	public Habitacion seleccionar(Integer id);
-	public void eliminar(Integer id);
-
+	public void actualizar(Habitacion habitacion);
+	public Habitacion seleccionar(String num);
+	public void eliminar(String num);
 }

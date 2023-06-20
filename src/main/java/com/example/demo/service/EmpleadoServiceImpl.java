@@ -6,36 +6,33 @@ import org.springframework.stereotype.Service;
 import com.example.demo.repository.EmpleadoRepository;
 import com.example.demo.repository.modelo.Empleado;
 
-
 @Service
-public class EmpleadoServiceImpl implements EmpleadoService {
-	
+
+public class EmpleadoServiceImpl implements EmpleadoService{
+
 	@Autowired
-	private EmpleadoRepository empleadoService;
-
+	private EmpleadoRepository empleadoRepository;
+	
 	@Override
-	public void agregar(Empleado empleado) {
-		// TODO Auto-generated method stub
-		this.empleadoService.insertar( empleado);
+	public void guardar(Empleado empleado) {
+	this.empleadoRepository.insertar(empleado);
 		
 	}
 
 	@Override
-	public void actualizar(Integer id) {
-		// TODO Auto-generated method stub
-		this.empleadoService.actualizar(id);
+	public void actualizar(Empleado empleado) {
+		this.empleadoRepository.actualizar(empleado);
 		
 	}
 
 	@Override
-	public void buscar(Integer id) {
-		this.empleadoService.seleccionar(id);
-		
+	public Empleado buscar(Integer id ) {
+	return this.empleadoRepository.seleccionar(id);
 	}
 
 	@Override
-	public void eliminar(Integer id) {
-		this.empleadoService.eliminar(id);
+	public void eliminar(Integer id ) {
+	this.empleadoRepository.eliminar(id);
 		
 	}
 

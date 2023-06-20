@@ -8,34 +8,35 @@ import com.example.demo.repository.modelo.Habitacion;
 
 @Service
 public class HabitacionServiceImpl implements HabitacionService {
+
 	
 	@Autowired
 	private HabitacionRepository habitacionRepository;
-
+	
 	@Override
-	public void agregar(Habitacion habitacion) {
-		// TODO Auto-generated method stub
+	public void guardar(Habitacion habitacion) {
+	
 		this.habitacionRepository.insertar(habitacion);
 		
 	}
 
 	@Override
-	public void actualizar(Integer id) {
-		// TODO Auto-generated method stub
-		this.habitacionRepository.actualizar(id);
+	public void actualizar(Habitacion habitacion) {
+		this.habitacionRepository.actualizar(habitacion);
 		
 	}
 
 	@Override
-	public void buscar(Integer id) {
-		this.habitacionRepository.seleccionar(id);
-		
+	public void buscar(String num) {
+		this.habitacionRepository.seleccionar(num);
 	}
 
 	@Override
-	public void eliminar(Integer id) {
-		this.habitacionRepository.eliminar(id);
+	public void eliminar(String num) {
+		this.habitacionRepository.eliminar(num);
 		
 	}
+	
+	
 
 }

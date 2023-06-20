@@ -27,10 +27,9 @@ public class CtaBancariaServiceImpl implements CtaBancariaService {
 		
 	}
 
-	@Override
-	public void actualizar(Integer id) {
+	public void actualizar(CtaBancaria ctaBancaria) {
 		
-		this.bancariaRepository.actualizar(id);
+		this.bancariaRepository.actualizar(ctaBancaria);
 	}
 
 	@Override
