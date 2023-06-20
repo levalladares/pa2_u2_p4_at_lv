@@ -20,8 +20,8 @@ public class LibroServiceImpl implements LibroService{
 	}
 
 	@Override
-	public void actualizar(Integer id) {
-		this.libroRepository.actualizar(id);
+	public void actualizar(Libro libro) {
+		this.libroRepository.actualizar(libro);
 		
 	}
 

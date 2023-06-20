@@ -22,8 +22,8 @@ public class LibroRepositoryImpl implements LibroRepository {
 	}
 
 	@Override
-	public void actualizar(Integer id) {
-		this.entityManager.merge(id);
+	public void actualizar(Libro libro) {
+		this.entityManager.merge(libro);
 		
 	}
 

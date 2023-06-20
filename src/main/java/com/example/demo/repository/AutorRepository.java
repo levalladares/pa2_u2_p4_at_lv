@@ -5,8 +5,8 @@ import com.example.demo.repository.modelo.Autor;
 
 public interface AutorRepository {
 	
-	public void insertar(Autor libro);
-	public void actualizar(Integer  id);
+	public void insertar(Autor Autor);
+	public void actualizar(Autor  Autor);
 	public Autor seleccionar(Integer  id);
 	public void eliminar(Integer  id);
 

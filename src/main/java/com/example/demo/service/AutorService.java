@@ -4,8 +4,8 @@ import com.example.demo.repository.modelo.Autor;
 
 public interface AutorService {
 
-	public void guardar(Autor libro);
-	public void actualizar(Integer  id);
+	public void guardar(Autor autor);
+	public void actualizar(Autor  autor);
 	public Autor buscar(Integer  id);
 	public void eliminar(Integer  id);
 	

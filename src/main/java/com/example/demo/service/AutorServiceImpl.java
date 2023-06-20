@@ -14,14 +14,14 @@ public class AutorServiceImpl implements AutorService{
 	
 	
 	@Override
-	public void guardar(Autor libro) {
-	this.autorRepository.insertar(libro);
+	public void guardar(Autor autor) {
+	this.autorRepository.insertar(autor);
 		
 	}
 
 	@Override
-	public void actualizar(Integer id) {
-	this.autorRepository.actualizar(id);
+	public void actualizar(Autor autor) {
+	this.autorRepository.actualizar(autor);
 		
 	}
 

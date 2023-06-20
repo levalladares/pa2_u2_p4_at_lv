@@ -1,26 +1,25 @@
 package com.example.demo;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.example.demo.repository.modelo.Habitacion;
-import com.example.demo.repository.modelo.Hotel;
-import com.example.demo.service.HabitacionService;
-import com.example.demo.service.HotelService;
+import com.example.demo.repository.modelo.Autor;
+import com.example.demo.repository.modelo.Libro;
+import com.example.demo.service.AutorService;
+import com.example.demo.service.LibroService;
 
 @SpringBootApplication
 public class Pa2U2P4AtLvApplication implements CommandLineRunner {
 	
 	@Autowired
-	private HotelService  hotelService;
+	private LibroService  libroService;
 	@Autowired
-	private HabitacionService habitacionService ;
+	private AutorService autorService ;
 	
 	
 	public static void main(String[] args) {
@@ -30,57 +29,58 @@ public class Pa2U2P4AtLvApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 	
-		/*Hotel hotel1= new Hotel ();
-		hotel1.setDireccion("Quito");
-		hotel1.setNombre("Risol");*/
-		//this.hotelService.guardar(hotel1);
+		Autor autor1 = new Autor();
+		autor1.setNombre("Anthony");
+		autor1.setApeliido("Vallades");
 		
-		Hotel hotel2= new Hotel ();
-		hotel2.setDireccion("Sangolqui");
-		hotel2.setNombre("Hotel Y");
-		
-		
-		Habitacion hab1= new Habitacion();
-		hab1.setNumero("01");
-		hab1.setValor(new  BigDecimal(30));
-		//hab1.setHotel(hotel1);
-		//this.habitacionService.guardar(hab1);
-		
-		Habitacion hab2= new Habitacion();
-		hab2.setNumero("02");
-		hab2.setValor(new  BigDecimal(30));
-		//hab2.setHotel(hotel1);
-		//this.habitacionService.guardar(hab2);
-		
-		Habitacion hab3= new Habitacion();
-		hab3.setNumero("03");
-		hab3.setValor(new  BigDecimal(35));
-		//hab3.setHotel(hotel1);
-		//this.habitacionService.guardar(hab3);
-		
-		List<Habitacion>lista=new ArrayList<>();
-		lista.add(hab1);
-		lista.add(hab2);
-		lista.add(hab3);
-		
-		
-		
-		Hotel hotel1= new Hotel ();
-		hotel1.setDireccion("Quito");
-		hotel1.setNombre("Risol");
-		hotel1.setHabitaciones(lista);
-		
-		hab1.setHotel(hotel1);
-		hab2.setHotel(hotel1);
-		hab3.setHotel(hotel1);
-		this.hotelService.guardar(hotel1);
-		
-		hotel1.setNombre("ABCD");
-		this.hotelService.actualizar(hotel1);
-		
-		this.habitacionService.eliminar(4);
+		Autor autor2 = new Autor();
+		autor2.setNombre("Luis");
+		autor2.setApeliido("Vallades");
 
+		Autor autor3 = new Autor();
+		autor3.setNombre("Jhon");
+		autor3.setApeliido("Vallades");
 		
+		
+		Set<Autor> conjuntoAutor= new HashSet<>();
+		conjuntoAutor.add(autor1);
+		conjuntoAutor.add(autor2);
+		conjuntoAutor.add(autor3);
+		
+	
+		//LIBROS
+		Libro libro1 = new Libro();
+		libro1.setTitulo("Caperucita");
+		libro1.setEditorial("Norma");
+	
+		Libro libro2 = new Libro();
+		libro2.setTitulo("XYZ");
+		libro2.setEditorial("Norma");
+
+		Libro libro3 = new Libro();
+		libro3.setTitulo("El principito");
+		libro3.setEditorial("Norma");
+		
+		Set<Libro> conjuntoLibros= new HashSet<>();
+		conjuntoLibros.add(libro1);
+		conjuntoLibros.add(libro2);
+		conjuntoLibros.add(libro3);
+		
+		
+		//Agregacion
+		//autor1.setLibros(conjuntoLibros);
+		//this.autorService.guardar(autor1);
+		
+		libro1.setAutores(conjuntoAutor);
+		this.libroService.guardar(libro1);
+		
+		
+		libro1.setTitulo("Harry Potter");
+		this.libroService.actualizar(libro1);
+		
+		this.libroService.buscar(1);
+		
+		this.libroService.eliminar(1);
 		
 		
 			

@@ -16,14 +16,14 @@ public class AutorRepositoryImpl implements AutorRepository{
 	private EntityManager entityManager;
 	
 	@Override
-	public void insertar(Autor libro) {
-		this.entityManager.persist(libro);
+	public void insertar(Autor autor) {
+		this.entityManager.persist(autor);
 		
 	}
 
 	@Override
-	public void actualizar(Integer id) {
-		this.entityManager.merge(id);
+	public void actualizar(Autor autor) {
+		this.entityManager.merge(autor);
 	}
 
 	@Override
