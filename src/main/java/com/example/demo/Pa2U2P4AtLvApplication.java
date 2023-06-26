@@ -1,18 +1,21 @@
 package com.example.demo;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.example.demo.repository.modelo.Estudiante;
-import com.example.demo.service.EstudianteService;
+import com.example.demo.repository.modelo.Zapato;
+import com.example.demo.service.ZapatoService;
 
 @SpringBootApplication
 public class Pa2U2P4AtLvApplication implements CommandLineRunner {
 	
 	@Autowired
-	private EstudianteService  estudianteService;
+	private ZapatoService  zapatoService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(Pa2U2P4AtLvApplication.class, args);
@@ -20,45 +23,53 @@ public class Pa2U2P4AtLvApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-
-		/*Estudiante estu= new Estudiante();
-		estu.setApellido("Valladares");
-		estu.setCedula("1564651313");
-		estu.setNombre("Luis");
-		this.estudianteService.guardar(estu);
 		
-		Estudiante estu2= new Estudiante();
-		estu2.setApellido("Bastidas");
-		estu2.setCedula("1785248759");
-		estu2.setNombre("Ernesto");
-		this.estudianteService.guardar(estu2);
+//		Zapato zap = new Zapato();
+//		zap.setCodigoUnico("A001");
+//		zap.setFechaFabricacion(LocalDate.now());
+//		zap.setMarca("Nike");
+//		zap.setNombre("Dunk");
+//		zap.setPrecio(new BigDecimal(150));
+//		this.zapatoService.fabricar(zap);
+//		
+//		Zapato zap2 = new Zapato();
+//		zap2.setCodigoUnico("A002");
+//		zap2.setFechaFabricacion(LocalDate.now());
+//		zap2.setMarca("Nike");
+//		zap2.setNombre("Jordan1");
+//		zap2.setPrecio(new BigDecimal(200));
+//		this.zapatoService.fabricar(zap2);
+//		
+//		Zapato zap3 = new Zapato();
+//		zap3.setCodigoUnico("AE03");
+//		zap3.setFechaFabricacion(LocalDate.now());
+//		zap3.setMarca("Nike");
+//		zap3.setNombre("AirForce1");
+//		zap3.setPrecio(new BigDecimal(100));
+//		this.zapatoService.fabricar(zap3);
+//		
+//		Zapato zap4 = new Zapato();
+//		zap4.setCodigoUnico("AEZ4");
+//		zap4.setFechaFabricacion(LocalDate.now());
+//		zap4.setMarca("Adidas");
+//		zap4.setNombre("Superstar");
+//		zap4.setPrecio(new BigDecimal(130));
+//		this.zapatoService.fabricar(zap4);
 		
-		Estudiante estu3= new Estudiante();
-		estu3.setApellido("Bastidas");
-		estu3.setCedula("17852487592");
-		estu3.setNombre("Ernesto");
-		this.estudianteService.guardar(estu3);
+		System.out.println(">>>>>Query.getSingleResult");
+		System.out.println(this.zapatoService.validar("AEZ4"));
 		
-		Estudiante estu4= new Estudiante();
-		estu4.setApellido("Bastidas");
-		estu4.setCedula("17852487593");
-		estu4.setNombre("Ernesto");
-		this.estudianteService.guardar(estu4);*/
+		System.out.println(">>>>>Query.getResultList");
+		System.out.println(this.zapatoService.marcasDisponibles("Nike"));
 		
-		System.out.println("buscar solo un dato que no se repite Query.getSingleResult>>");
-		System.out.println(this.estudianteService.buscarPorApellido("Valladares"));
-		System.out.println("buscar una lista  lista Query.getResultList>>");
-		System.out.println(this.estudianteService.generarReporte("Bastidas"));
-		System.out.println("buscar por dos atributos");
-		System.out.println(this.estudianteService.buscarPorApellidoyNombre("Valladares","Luis"));
-		System.out.println("TypedQuery>>getSingleResult");
-		System.out.println(this.estudianteService.buscarPorApellidoTyped("Valladares"));
-	
+		System.out.println(">>>>>por dos atributos");
+		System.out.println(this.zapatoService.preciosyMarcas("Nike", new BigDecimal(100)));
 		
+		System.out.println(">>>>>Query.getSingleResultTyped");
+		System.out.println(this.zapatoService.buscarPorNombre("Dunk"));
 		
-		
-		
-			
+		System.out.println(">>>>>Query.getResultListTyped");
+		System.out.println(this.zapatoService.fechaDeFabricacion(LocalDate.now()));
 	}
 
 }

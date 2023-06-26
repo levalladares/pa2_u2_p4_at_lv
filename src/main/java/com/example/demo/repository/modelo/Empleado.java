@@ -1,6 +1,7 @@
 package com.example.demo.repository.modelo;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -32,6 +33,7 @@ public class Empleado {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "empl_ciudadano_id")  //la columna donde la pk se hara fk
 	private Ciudadano ciudadano;
+	
 	
 	
 	//set y get
