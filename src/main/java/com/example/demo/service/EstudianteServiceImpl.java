@@ -37,4 +37,28 @@ public class EstudianteServiceImpl implements EstudianteService {
 		
 	}
 
+	@Override
+	public Estudiante buscarPorApellido(String apellido) {
+		
+		return this.estudianteRepository.seleccionarPorApellido(apellido);
+	}
+
+	@Override
+	public List<Estudiante> generarReporte(String apellido) {
+		
+		return this.estudianteRepository.seleccionarListaPorApellido(apellido);
+	}
+
+	@Override
+	public Estudiante buscarPorApellidoyNombre(String apellido, String nombre) {
+		
+		return this.estudianteRepository.seleccionarPorApellidoyNombre(apellido, nombre);
+	}
+
+	@Override
+	public Estudiante buscarPorApellidoTyped(String apellido) {
+		
+		return this.estudianteRepository.seleccionarPorApellidoTyped(apellido);
+	}
+
 }

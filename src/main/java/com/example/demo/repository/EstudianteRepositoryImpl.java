@@ -10,6 +10,8 @@ import com.example.demo.repository.modelo.Estudiante;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.Query;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 
 @Repository
@@ -42,6 +44,42 @@ public class EstudianteRepositoryImpl implements EstudianteRepository {
 		Estudiante estu=this.seleccionar(cedula);
 		this.entityManager.remove(estu);
 	
+	}
+
+	@Override
+	public Estudiante seleccionarPorApellido(String apellido) {
+		//SQL
+		//select * from estudiante e where e.estu_apellido = 
+		//JPQL
+		//select e from Estudiante e where e.apellido = 
+		Query myQuery=this.entityManager.createQuery("select e from Estudiante e where e.apellido = :datoApellido");// el de los 2 puntos es un atributo 
+		myQuery.setParameter("datoApellido",apellido);
+		return (Estudiante) myQuery.getSingleResult();
+	}
+
+	@Override
+	public List<Estudiante> seleccionarListaPorApellido(String apellido) {
+		Query myQuery=this.entityManager.createQuery("select e from Estudiante e where e.apellido = :datoApellido");// el de los 2 puntos es un atributo 
+		myQuery.setParameter("datoApellido",apellido);
+		return myQuery.getResultList();
+	}
+
+	@Override
+	public Estudiante seleccionarPorApellidoyNombre(String apellido, String nombre) {
+		Query myQuery=this.entityManager.createQuery("select e from Estudiante e where e.apellido = :datoApellido and e.nombre=:datoNombre");// el de los 2 puntos es un atributo 
+		myQuery.setParameter("datoApellido",apellido);
+		myQuery.setParameter("datoNombre",nombre);
+		return (Estudiante) myQuery.getSingleResult();
+	}
+
+	@Override
+	public Estudiante seleccionarPorApellidoTyped(String apellido) {
+		// interactuar con la bd this.entityManager.createQuery("JPQL",
+        // Estudiante.class);
+        TypedQuery<Estudiante> myQuery = this.entityManager
+                .createQuery("SELECT e FROM Estudiante e WHERE e.apellido=:datoApellido", Estudiante.class);
+        myQuery.setParameter("datoApellido", apellido);
+        return myQuery.getSingleResult();
 	}
 
 }
