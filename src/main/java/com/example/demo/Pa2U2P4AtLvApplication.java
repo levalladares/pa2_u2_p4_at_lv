@@ -3,6 +3,7 @@ package com.example.demo;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import org.hibernate.type.descriptor.java.LocalDateJavaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -24,37 +25,37 @@ public class Pa2U2P4AtLvApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
-//		Zapato zap = new Zapato();
-//		zap.setCodigoUnico("A001");
-//		zap.setFechaFabricacion(LocalDate.now());
-//		zap.setMarca("Nike");
-//		zap.setNombre("Dunk");
-//		zap.setPrecio(new BigDecimal(150));
-//		this.zapatoService.fabricar(zap);
-//		
-//		Zapato zap2 = new Zapato();
-//		zap2.setCodigoUnico("A002");
-//		zap2.setFechaFabricacion(LocalDate.now());
-//		zap2.setMarca("Nike");
-//		zap2.setNombre("Jordan1");
-//		zap2.setPrecio(new BigDecimal(200));
-//		this.zapatoService.fabricar(zap2);
-//		
-//		Zapato zap3 = new Zapato();
-//		zap3.setCodigoUnico("AE03");
-//		zap3.setFechaFabricacion(LocalDate.now());
-//		zap3.setMarca("Nike");
-//		zap3.setNombre("AirForce1");
-//		zap3.setPrecio(new BigDecimal(100));
-//		this.zapatoService.fabricar(zap3);
-//		
-//		Zapato zap4 = new Zapato();
-//		zap4.setCodigoUnico("AEZ4");
-//		zap4.setFechaFabricacion(LocalDate.now());
-//		zap4.setMarca("Adidas");
-//		zap4.setNombre("Superstar");
-//		zap4.setPrecio(new BigDecimal(130));
-//		this.zapatoService.fabricar(zap4);
+		Zapato zap = new Zapato();
+		zap.setCodigoUnico("A001");
+		zap.setFechaFabricacion(LocalDate.now());
+		zap.setMarca("Nike");
+		zap.setNombre("Dunk");
+		zap.setPrecio(new BigDecimal(150));
+		this.zapatoService.fabricar(zap);
+		
+		Zapato zap2 = new Zapato();
+		zap2.setCodigoUnico("A002");
+		zap2.setFechaFabricacion(LocalDate.now());
+		zap2.setMarca("Nike");
+		zap2.setNombre("Jordan1");
+		zap2.setPrecio(new BigDecimal(200));
+		this.zapatoService.fabricar(zap2);
+		
+		Zapato zap3 = new Zapato();
+		zap3.setCodigoUnico("AE03");
+		zap3.setFechaFabricacion(LocalDate.now());
+		zap3.setMarca("Nike");
+		zap3.setNombre("AirForce1");
+		zap3.setPrecio(new BigDecimal(100));
+		this.zapatoService.fabricar(zap3);
+		
+		Zapato zap4 = new Zapato();
+		zap4.setCodigoUnico("AEZ4");
+		zap4.setFechaFabricacion(LocalDate.now());
+		zap4.setMarca("Adidas");
+		zap4.setNombre("Superstar");
+		zap4.setPrecio(new BigDecimal(130));
+		this.zapatoService.fabricar(zap4);
 		
 		System.out.println(">>>>>Query.getSingleResult");
 		System.out.println(this.zapatoService.validar("AEZ4"));
