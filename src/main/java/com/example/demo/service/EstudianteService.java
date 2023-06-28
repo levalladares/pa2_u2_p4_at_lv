@@ -16,5 +16,13 @@ public interface EstudianteService {
 	public Estudiante buscarPorApellidoyNombre(String apellido,String nombre);
 	public Estudiante buscarPorApellidoTyped(String apellido);
 	
-
+	public Estudiante buscarPorApellidoNamed(String apellido);
+	public Estudiante buscarPorApellidoNamedQuey(String apellido);
+	public Estudiante buscarPorApellidoNativeQuery(String apellido);
+	public Estudiante buscarPorApellidoNativeQueryNamed(String apellido);
+	
+	public Estudiante buscarPorNombreNativeQueryNamed(String nombre);
+	public Estudiante buscarPorNombreNamedQuery(String nombre);
+	
+	
 }
