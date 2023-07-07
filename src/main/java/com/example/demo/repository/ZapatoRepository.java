@@ -14,6 +14,8 @@ public interface ZapatoRepository {
 	public Zapato seleccionarPorMarcayPrecio(String marca,BigDecimal precio);
 	public Zapato seleccionarPorNombreTyped(String nombre);
 	public  List<Zapato> seleccionarPorFecha(LocalDate fechaFabricacion);
-	
+	public int actualizarPorTallayPrecio(String nombre,String talla,BigDecimal precio);
+	public int eliminarPorNombreyMarca(String nombre,String marca);
+
 
 }

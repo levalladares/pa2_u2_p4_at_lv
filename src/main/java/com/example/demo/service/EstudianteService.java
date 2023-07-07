@@ -23,6 +23,9 @@ public interface EstudianteService {
 	
 	public Estudiante buscarPorNombreNativeQueryNamed(String nombre);
 	public Estudiante buscarPorNombreNamedQuery(String nombre);
+	public Estudiante buscarEstudianteDinamico(String nombre, String apellido, Double peso); 
 	
+	public int eliminarPorNombre(String nombre);
+	public int actualizarPorApellido(String nombre,String apellido);
 	
 }

@@ -70,4 +70,24 @@ public class ZapatoRepositoryImpl implements ZapatoRepository{
         return myQuery.getResultList();
 	}
 
+
+	@Override
+	public int actualizarPorTallayPrecio(String nombre, String talla, BigDecimal precio) {
+		Query myQuery = this.entityManager
+                .createQuery("UPDATE Zapato e SET e.talla=:datoTalla, e.precio=:datoPrecio WHERE e.nombre=:datoNombre");
+        myQuery.setParameter("datoNombre", nombre);
+        myQuery.setParameter("datoTalla", talla);
+        myQuery.setParameter("datoPrecio", precio);
+        return myQuery.executeUpdate();// unico metodo
+	}
+
+
+	@Override
+	public int eliminarPorNombreyMarca(String nombre, String marca) {
+		Query myQuery = this.entityManager.createQuery("DELETE  FROM Zapato e WHERE e.nombre=:datoNombre AND e.marca=:datoMarca");
+        myQuery.setParameter("datoNombre", nombre);
+        myQuery.setParameter("datoMarca", marca);
+        return myQuery.executeUpdate();// unico metodo
+	}
+
 }

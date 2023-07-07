@@ -51,4 +51,16 @@ public class ZapatoServiceImpl implements ZapatoService{
 		return this.zapatoRepository.seleccionarPorFecha(fechaFabricacion);
 	}
 
+	@Override
+	public int actualizarTallayPrecio(String nombre, String talla, BigDecimal precio) {
+		// TODO Auto-generated method stub
+		return this.zapatoRepository.actualizarPorTallayPrecio(nombre, talla, precio);
+	}
+
+	@Override
+	public int eliminarPorNombreyMarca(String nombre, String marca) {
+		// TODO Auto-generated method stub
+		return this.zapatoRepository.eliminarPorNombreyMarca(nombre, marca);
+	}
+
 }

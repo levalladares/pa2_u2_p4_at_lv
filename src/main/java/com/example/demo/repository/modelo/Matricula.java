@@ -36,8 +36,17 @@ public class Matricula {
 	@JoinColumn(name = "mtla_id_materia")
 	private Materia materia;
 	
-	//SET Y GET
+	
+	
+	
+	//Tostring
+	@Override
+	public String toString() {
+		return "Matricula [id=" + id + ", fecha=" + fecha + ", numero=" + numero + ", alumno=" + alumno + ", materia="
+				+ materia + "]";
+	}
 
+	//SET Y GET
 	public Integer getId() {
 		return id;
 	}

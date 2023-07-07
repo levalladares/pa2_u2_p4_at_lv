@@ -30,13 +30,17 @@ public class Zapato {
 	private LocalDate fechaFabricacion;
 	@Column(name = "zapa_codigoUnico")
 	private String codigoUnico;
+	@Column(name = "zapa_talla")
+	private String talla;
+	
+	
 	
 	
 	// TO STRING
 	@Override
 	public String toString() {
 		return "Zapato [id=" + id + ", nombre=" + nombre + ", marca=" + marca + ", precio=" + precio
-				+ ", fechaFabricacion=" + fechaFabricacion +"codigoUnico"+codigoUnico+ "]\n";
+				+ ", fechaFabricacion=" + fechaFabricacion +" talla="+talla+"codigoUnico"+codigoUnico+ "]\n";
 	}
 	//GET Y SET
 	public Integer getId() {
@@ -74,6 +78,12 @@ public class Zapato {
 	}
 	public void setFechaFabricacion(LocalDate fechaFabricacion) {
 		this.fechaFabricacion = fechaFabricacion;
+	}
+	public String getTalla() {
+		return talla;
+	}
+	public void setTalla(String talla) {
+		this.talla = talla;
 	}
 	
 	

@@ -24,4 +24,10 @@ public interface EstudianteRepository {
 	public Estudiante seleccionarPorNombreNativeQueryNamed(String nombre);
 	public Estudiante seleccionarPorApellidoCriteriAPIQuery(String apellido);
 	
+	public Estudiante seleccionarEstudianteDinamico(String nombre, String apellido, Double peso); 
+	
+	public int actualizarPorApellido(String nombre,String apellido);
+
+	public int eliminarPorNombre(String nombre);
+	
 }
