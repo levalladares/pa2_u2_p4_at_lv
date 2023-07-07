@@ -63,4 +63,12 @@ public class ZapatoServiceImpl implements ZapatoService{
 		return this.zapatoRepository.eliminarPorNombreyMarca(nombre, marca);
 	}
 
+	@Override
+	public List<Zapato>  BuscarPorNomnbreDinamico(String nombre, BigDecimal precio, String marca) {
+		// TODO Auto-generated method stub
+		return this.zapatoRepository.seleccionarPorNombreDinamico(nombre, precio, marca);
+	}
+	
+	
+
 }

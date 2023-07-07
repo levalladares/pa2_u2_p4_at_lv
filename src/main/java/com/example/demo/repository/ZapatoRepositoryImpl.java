@@ -6,13 +6,16 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-
 import com.example.demo.repository.modelo.Zapato;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 import jakarta.transaction.Transactional;
 
 @Repository
@@ -88,6 +91,31 @@ public class ZapatoRepositoryImpl implements ZapatoRepository{
         myQuery.setParameter("datoNombre", nombre);
         myQuery.setParameter("datoMarca", marca);
         return myQuery.executeUpdate();// unico metodo
+	}
+
+
+	@Override
+	public List<Zapato> seleccionarPorNombreDinamico(String nombre, BigDecimal precio, String marca) {
+		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
+		CriteriaQuery<Zapato> criteriaQuery = builder.createQuery(Zapato.class);
+		Root<Zapato> myTablaFrom = criteriaQuery.from(Zapato.class); 
+		Predicate pNombre = builder.equal(myTablaFrom.get("nombre"), nombre);
+		Predicate pMarca = builder.equal(myTablaFrom.get("marca"), marca);
+		Predicate predicadoFinal=null;
+
+		//<= 300 buscar por titulo o director else buscar por titulo y autor
+		if(precio.compareTo(new BigDecimal(100))<=0) {	//Presupuesto en millones
+
+			predicadoFinal = builder.or(pNombre, pMarca);
+
+		}else {
+			predicadoFinal=builder.and(pNombre,pMarca);
+
+		}
+
+		criteriaQuery.select(myTablaFrom).where(predicadoFinal);
+		TypedQuery<Zapato> queryFinal = this.entityManager.createQuery(criteriaQuery);
+		return queryFinal.getResultList();
 	}
 
 }

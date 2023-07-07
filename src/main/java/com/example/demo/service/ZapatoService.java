@@ -15,4 +15,5 @@ public interface ZapatoService {
 	public  List<Zapato> fechaDeFabricacion(LocalDate fechaFabricacion);
 	public int actualizarTallayPrecio(String nombre, String talla, BigDecimal precio);
 	public int eliminarPorNombreyMarca(String nombre, String marca);
+	public List<Zapato>  BuscarPorNomnbreDinamico(String nombre,BigDecimal precio,String marca);
 }
